@@ -1,0 +1,34 @@
+{
+  "name": "character-manager",
+  "version": "0.0.1",
+  "description": "Character sheet manager for tabletop role-playing games.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "mocha ./components --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xuroth/Character-Manager.git"
+  },
+  "keywords": [
+    "Pathfinder",
+    "RPG",
+    "role-playing",
+    "character"
+  ],
+  "author": "Stephan Franz",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Xuroth/Character-Manager/issues"
+  },
+  "homepage": "https://github.com/Xuroth/Character-Manager#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}
