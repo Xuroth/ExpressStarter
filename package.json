@@ -24,8 +24,24 @@
   },
   "homepage": "https://github.com/Xuroth/Character-Manager#readme",
   "dependencies": {
+    "@passport-next/passport-facebook": "^3.0.0",
+    "bcrypt-nodejs": "0.0.3",
+    "config": "^2.0.1",
+    "connect-mongodb-session": "^2.0.3",
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.4",
-    "morgan": "^1.9.1"
+    "express-flash": "0.0.2",
+    "express-handlebars": "^3.0.0",
+    "express-hbs": "^1.0.4",
+    "express-session": "^1.15.6",
+    "handlebars-extend-block": "^1.0.0",
+    "helmet": "^3.14.0",
+    "mongoose": "^5.3.10",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",

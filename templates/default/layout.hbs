@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {{!-- Favicon --}}
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        {{!-- Bootstrap v4.1.3 --}}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        {{!-- FontAwesome v5.5.0 PRO --}}
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-j8y0ITrvFafF4EkV1mPW0BKm6dp3c+J9Fky22Man50Ofxo2wNe5pT1oZejDH9/Dt" crossorigin="anonymous">
+        {{!--
+            NOTE: This project uses FontAwesome 5 PRO, and while the [integrity] prop can be safely published to repositories,
+            be aware that the CDN will refuse the connection if the origin is not included in the PRO user's account list of
+            approved domains. This means that it will NOT work for you, and you'll need to:
+                a) Purchase your own copy of FontAwesome 5 PRO https://fontawesome.com/pro and then replace the [integrity] prop with your own
+                or
+                b) Replace all icons by using FontAwesome 5 Free or alternative iconset and changing all the icon names in the html
+            
+            I know that this is NOT best practice for publishing open source software, but I wanted to use the PRO features
+            of FA5 for my own use, and did not want to add conditional host-checking boilerplate to differentiate between my
+            own domains and those of others. In exchange, the majority of icons can be changed to freely available ones by 
+            swapping .fal with .far (switch from PRO light style to regular). Not all icons used will have a free regular
+            style available. I apologize for this!
+        --}}
+        {{{block "cssLinks"}}}
+        {{{block "cssStylesRaw"}}}
+        {{!-- Remove hashlink passed by oauth2 --}}
+        <script>
+            //As a security measure, certain login providers, like Facebook, modify callback URLs by appending a hash fragment.
+            // This teeny scriptlet will check for it and remove it (adjusting the browser history for the current item).
+            // Normally, the hash fragment is not seen by the server as it's visible only to the browser. But it is dang
+            // ugly, and in case the user types in URLs or I goof and make some kind of client script redirect, it would
+            // be better if it were not there.
+            if (window.location.hash && window.location.hash == '#_=_') {
+                if (window.history && history.pushState) {
+                    window.history.replaceState("", document.title, window.location.pathname);
+                } else {
+                    //In case the browser has scrolled instead of adding the fragment to history.
+                    var scroll = {
+                        top: document.body.scrollTop,
+                        left: document.body.scrollLeft
+                    };
+                    window.location.hash = '';
+                    document.body.scrollTop = scroll.top;
+                    document.body.scrollLeft = scroll.left;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        {{> default/navigation}}
+        {{> default/flashmessages}}
+        <div class="container-fluid">
+            {{{body}}}
+        </div>
+        
+        <div class="block">
+            {{{block "extra"}}}
+        </div>
+        {{!-- jQuery v3.3.1 --}}
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        {{!-- Popper v1.14.3 --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        {{!-- Bootstrap v4.1.3 --}}
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        {{{block "jsScripts"}}}
+        {{{block "jsRaw"}}}
+    </body>
+</html>

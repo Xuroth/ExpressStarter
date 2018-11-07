@@ -1,0 +1,45 @@
+{{#each messages.errors as |message|}}
+    <div class="flash-bar alert alert-danger alert-dismissable fade show" role="alert">
+        <strong><i class="fal fa-exclamation-triangle"></i> Error:</strong> {{message}}
+        <button type="close" class="close" data-dismiss="alert">
+            <i class="fal fa-times"></i>
+        </button>
+    </div>
+{{else}}
+{{/each}}
+{{#each messages.warning as |message|}}
+    <div class="flash-bar alert alert-warning alert-dismissable fade show" role="alert">
+        <strong><i class="fal fa-exclamation-circle"></i> Warning:</strong> {{message}}
+        <button type="close" class="close" data-dismiss="alert">
+            <i class="fal fa-times"></i>
+        </button>
+    </div>
+{{else}}
+{{/each}}
+{{#each messages.info as |message|}}
+    <div class="flash-bar alert alert-info alert-dismissable fade show" role="alert">
+        <strong><i class="fal fa-info"></i> Notice:</strong> {{message}}
+        <button type="close" class="close" data-dismiss="alert">
+            <i class="fal fa-times"></i>
+        </button>
+    </div>
+{{else}}
+{{/each}}
+{{#each messages.success as |message|}}
+    <div class="flash-bar alert alert-success alert-dismissable fade show" role="alert">
+        <strong><i class="fal fa-check"></i> Success:</strong> {{message}}
+        <button type="close" class="close" data-dismiss="alert">
+            <i class="fal fa-times"></i>
+        </button>
+    </div>
+{{else}}
+{{/each}}
+{{#each messages.default as |message|}}
+    <div class="flash-bar alert alert-dark alert-dismissable fade show" role="alert">
+        <strong><i class="fal fa-comment-alt"></i> Hey:</strong> {{message}}
+        <button type="close" class="close" data-dismiss="alert">
+            <i class="fal fa-times"></i>
+        </button>
+    </div>
+{{else}}
+{{/each}}
