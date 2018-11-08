@@ -41,6 +41,11 @@ const config = {
             appID: '',
             appSecret: '',
             callback: ''
+        },
+        google: {
+            clientID: '',
+            clientSecret: '',
+            callback: ''
         }
     }
 }

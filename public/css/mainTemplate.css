@@ -1,0 +1,17 @@
+body {
+    background-color: #212529;
+    color: #fff;
+}
+.navbar-text {
+    border-left: 2px solid #fff;
+    padding-left: 0.8rem;
+    color: #fff !important;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+}
+.flash-bar {
+    border-radius: 0px;
+}
+.flash-bar .close {
+    color: inherit;
+}

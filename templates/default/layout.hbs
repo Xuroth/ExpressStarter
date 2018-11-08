@@ -3,7 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         {{!-- Favicon --}}
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         {{!-- Bootstrap v4.1.3 --}}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         {{!-- FontAwesome v5.5.0 PRO --}}
@@ -22,6 +22,7 @@
             swapping .fal with .far (switch from PRO light style to regular). Not all icons used will have a free regular
             style available. I apologize for this!
         --}}
+        <link rel="stylesheet" href="/css/mainTemplate.css">
         {{{block "cssLinks"}}}
         {{{block "cssStylesRaw"}}}
         {{!-- Remove hashlink passed by oauth2 --}}
@@ -32,6 +33,7 @@
             // ugly, and in case the user types in URLs or I goof and make some kind of client script redirect, it would
             // be better if it were not there.
             if (window.location.hash && window.location.hash == '#_=_') {
+                console.log('Passed hash fragment. Cleaned URL.')
                 if (window.history && history.pushState) {
                     window.history.replaceState("", document.title, window.location.pathname);
                 } else {

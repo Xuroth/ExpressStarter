@@ -3,6 +3,7 @@ const express       = require('express');
 const morgan        = require('morgan');
 const helmet        = require('helmet');
 const cookieParser  = require('cookie-parser');
+const bodyParser    = require('body-parser');
 const session       = require('express-session');
 const MongoStore    = require('connect-mongodb-session')(session);
 const config        = require('config');
@@ -50,7 +51,9 @@ const store = new MongoStore({
 let sessionOptions = config.get('session')
 
 //Initialize session, add store to sessionOptions
-app.use(cookieParser(sessionOptions.secret))
+app.use(cookieParser(sessionOptions.secret));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(session( {...sessionOptions, store} ));
 app.use(flash())
 app.use(passport.initialize());
@@ -88,6 +91,7 @@ app.use(favicon(__dirname + '/public/img/favicon.ico'))
 app.use(express.static('public'))
 
 //Define Basic routes
+app.use('/auth', require('./components/auth/routes'))
 app.use('/', require('./components/main/routes'));
 
 //Error 404 handler

@@ -8,18 +8,53 @@ var userSchema = mongoose.Schema({
     username: {
         type: String
     },
+    password: {
+        type: String
+    },
     oauth: {
         facebook: {
-            id: String,
-            token: String,
-            short_name: String,
-            email: String
+            id: {
+                type: String,
+                default: ''
+            },
+            token: {
+                type: String,
+                default: ''
+            },
+            short_name: {
+                type: String,
+                default: ''
+            },
+            email: {
+                type: String,
+                default: ''
+            }
+        },
+        google: {
+            id: {
+                type: String,
+                default: ''
+            },
+            token: {
+                type: String,
+                default: ''
+            },
+            name: {
+                type: String,
+                default: ''
+            },
+            email: {
+                type: String,
+                default: ''
+            }
         }
     }
-});
+}, {minimize: false});
 
-userSchema.methods.generateHash = (password) => bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-userSchema.methods.validatePassword = function(password) {
+userSchema.methods.generateHash = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
+};
+userSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 }
 
